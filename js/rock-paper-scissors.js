@@ -16,17 +16,17 @@ function playGame(playerChoice, computerChoice){
 
   /* the strings of the computer's choice and the player input need 
    to be of the same case, or it won't properly check that they are the same, or not */
-  isPlayerChoiceValid = gameChoices.includes(getPlayerChoice()) ? true : false;
+  isPlayerChoiceValid = gameChoices.includes(playerChoice) ? true : false;
 
   if (isPlayerChoiceValid === false){
     console.log("You did not pick a suitable option. Please try again!");
-    return getPlayerChoice();
+    return playGame(getPlayerChoice(), computerChoice);
   }
-  return checkGameResult(isPlayerChoiceValid, playerChoice, computerChoice);
+  return checkGameResult(playerChoice, computerChoice);
 }
 
 function checkGameResult(playerChoice, computerChoice){
-  
+
   if (playerChoice === gameChoices[0] && computerChoice === gameChoices[1]){
     return "You Lose! Paper beats Rock";
   } else if(playerChoice === gameChoices[1] && computerChoice === gameChoices[0]){
@@ -40,6 +40,7 @@ function checkGameResult(playerChoice, computerChoice){
   } else if (playerChoice === gameChoices[2] && computerChoice === gameChoices[1]){
     return "You Win! Scissors beats Paper";
   } else {
+    console.log(playerChoice, computerChoice);
     return "Draw! Replay";
   }
 }
