@@ -9,8 +9,12 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
 
-  playerChoiceLowerCase = prompt("What is your choice?").toLocaleLowerCase();
-  return playerChoiceLowerCase;
+  playerInputChoice = prompt("What is your choice?");
+  if (playerInputChoice === null || playerInputChoice === ''){
+    console.log("No input was provided! Please choose 'Rock', 'Paper' or 'Scissors'.");
+    getPlayerChoice();
+  }
+  return playerInputChoice.toLocaleLowerCase();
 }
 
 function playGame(playerChoice, computerChoice){
