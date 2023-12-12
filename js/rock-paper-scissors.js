@@ -30,7 +30,9 @@ function playGame(playerChoice, computerChoice){
 
   playGameResult = checkGameResult(playerChoice, computerChoice);
   if (playGameResult === "Draw! Replay"){
-    console.log("Draw! Replay");
+    // the result of a game isn't 'recorded' if the player drew;
+    // only wins or losses progress the game
+    console.log(playGameResult);
     return playGame(getPlayerChoice(), getComputerChoice());
   } else {
     return playGameResult;
